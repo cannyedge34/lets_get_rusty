@@ -1,0 +1,17 @@
+[package]
+name = "cargo_features"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"], optional = true }
+rgb = { version = "0.8.25", features = ["serde"], optional = true }
+
+# we can add optional features we need to put the key "optional dependencies" as true
+[features]
+# features are disabled by default, but we can enable them by default
+color = ["dep:rgb"]
+default = ["color"] # by default all features are disabled except color feature
+shapes = ["color", "dep:serde", "rgb?/serde"]
+# rgb?/serde it means: enable serde feature inside the rgb dependency if the rgb dependency is already enable by something else, in this case, the color feature
+

@@ -1,0 +1,5 @@
+we create auth_service project with the next command:
+
+`cargo new auth_service --lib`
+
+go to auth_service folder

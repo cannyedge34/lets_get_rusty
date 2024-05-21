@@ -1,0 +1,21 @@
+[workspace]
+
+members = [
+  "blog_api",
+  "blog_web",
+  "blog_shared"
+]
+
+# we need to use the command to create the packages:
+  # cargo new --vcs none blog_api
+
+# and we need to use this command to create a library crate:
+  # cargo new --vcs none --lib blog_api
+
+# we can build and target an specific package with the -p flag, for example:
+  # cargo build -p blog_api
+
+# add serde dependency for serialization
+# we also add "derive" feature to have access to Serialize/Deserialize derive macro
+[dependencies]
+serde = { version = "1.0", feaures = ["derive"] }
